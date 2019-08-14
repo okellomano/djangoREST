@@ -15,17 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from tutorial.quickstart import views
 
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-
-# we include login URLs for browsable API
 urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth', include('rest-framework.urls', namespace='rest-framework')),
+    path('', include('quickstart.urls')),
     path('admin/', admin.site.urls),
 ]
